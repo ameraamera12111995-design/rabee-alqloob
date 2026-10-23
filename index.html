@@ -94,7 +94,7 @@ footer { margin-top: 25px; font-size: 14px; }
 let count = 
   Number(localStorage.getItem('dhikrCount')) || 0;
 let currentDhikr = 'سبحان الله';
-
+document.getElementById('count').textContent = count + ' / 100';
 function increment() {
   if (count < 100) count++;
   localStorage.setItem('dhikrCount', count);
@@ -116,6 +116,7 @@ function resetCount() {
 function choose(dhikr) {
   currentDhikr = dhikr;
   count = 0;
+  localStorage.setItem('dhikrCount', count);
   document.getElementById('selected').textContent = dhikr;
   document.getElementById('count').textContent = '0 / 100';
 }
