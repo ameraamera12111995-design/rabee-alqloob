@@ -96,6 +96,7 @@ let currentDhikr = 'سبحان الله';
 
 function increment() {
   if (count < 100) count++;
+  localStorage.setItem('dhikrCount', count);
   document.getElementById('count').textContent =
     count + ' / 100';
   if (count === 100) {
@@ -106,6 +107,7 @@ function increment() {
 
 function resetCount() {
   count = 0;
+  localStorage.setItem('dhikrCount', count);
   document.getElementById('count').textContent = '0 / 100';
   document.getElementById('selected').textContent = currentDhikr;
 }
