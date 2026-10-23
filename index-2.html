@@ -1,72 +1,121 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#f5ebdd">
-<title>ربيع القلوب | مسبحة إلكترونية</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ربيع القلوب</title>
 <style>
-:root{--bg:#f5ebdd;--gold:#b99a59;--gold-dark:#80612c;--ink:#4d4030;--muted:#75634c;--card:#fffaf2}
-*{box-sizing:border-box}
-body{margin:0;min-height:100vh;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;display:flex;justify-content:center;padding:22px 14px}
-main{width:min(100%,480px);text-align:center}
-.ornament{height:8px;border-radius:99px;background:linear-gradient(90deg,transparent,var(--gold),#e4d0a4,var(--gold),transparent);margin:4px 0 22px}
-h1{color:var(--gold-dark);font-size:2rem;margin:0 0 6px}
-.subtitle{color:var(--muted);margin:0 0 24px}
-.card{background:var(--card);border:1px solid #e6d6b8;border-radius:24px;padding:22px 16px;box-shadow:0 10px 28px #7d603019}
-.tabs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
-.tab{border:1px solid #cdb47e;background:transparent;color:var(--gold-dark);border-radius:999px;padding:10px 15px;font-size:1rem;cursor:pointer}
-.tab.active{background:var(--gold);color:white;border-color:var(--gold)}
-.phrase{font-size:1.35rem;line-height:1.8;color:var(--gold-dark);min-height:58px;margin:8px 0}
-.count{font-size:3.5rem;font-weight:700;color:var(--gold-dark);line-height:1.15;font-variant-numeric:tabular-nums}
-.goal{color:var(--muted);font-size:.95rem;margin:6px 0 18px}
-.tap{width:172px;height:172px;border-radius:50%;border:8px solid #e6d6b8;background:var(--gold);color:white;font-size:1.05rem;font-weight:700;box-shadow:0 5px 0 #8d713c;cursor:pointer;touch-action:manipulation}
-.tap:active{transform:translateY(3px);box-shadow:0 2px 0 #8d713c}
-.tap span{display:block;font-size:2rem;margin-bottom:7px}
-.actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:22px}
-.small{border:1px solid #cdb47e;background:transparent;color:var(--gold-dark);border-radius:12px;padding:10px 14px;font-size:.95rem;cursor:pointer}
-.note{font-size:.8rem;color:var(--muted);margin:20px 4px 0;line-height:1.8}
-footer{margin-top:22px;color:var(--gold-dark);font-size:.85rem}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #e5f3e8, #f8f1df);
+  color: #28583e;
+  text-align: center;
+  padding: 25px 15px;
+}
+.card {
+  max-width: 420px;
+  margin: 25px auto;
+  padding: 25px 18px;
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 5px 20px #00000012;
+}
+h1 { color: #286344; }
+p { line-height: 1.8; }
+button {
+  border: none;
+  border-radius: 15px;
+  padding: 15px;
+  margin: 7px 3px;
+  font-size: 18px;
+  cursor: pointer;
+}
+.dhikr {
+  background: #e4f1e6;
+  color: #245b3c;
+  width: 95%;
+}
+.counter {
+  background: #286344;
+  color: white;
+  width: 85%;
+  font-size: 23px;
+  padding: 22px;
+}
+.reset {
+  background: #eee8dd;
+  color: #51483b;
+}
+#count { font-size: 38px; margin: 15px; }
+footer { margin-top: 25px; font-size: 14px; }
 </style>
 </head>
 <body>
-<main>
-  <div class="ornament"></div>
-  <h1>ربيع القلوب</h1>
-  <p class="subtitle">اذكر الله.. واطمئن قلبك</p>
-  <section class="card" aria-label="المسبحة الإلكترونية">
-    <div class="tabs" role="tablist" aria-label="اختاري الذكر">
-      <button class="tab active" data-kind="tasbeeh">التسبيح</button>
-      <button class="tab" data-kind="tahleel">التهليل</button>
-      <button class="tab" data-kind="takbeer">التكبير</button>
-      <button class="tab" data-kind="istighfar">الاستغفار</button>
-    </div>
-    <div class="phrase" id="phrase">سبحان الله وبحمده</div>
-    <div class="count" id="count" aria-live="polite">0</div>
-    <div class="goal" id="goal">من 100</div>
-    <button class="tap" id="tap" aria-label="اضغطي لزيادة العداد"><span>☝</span>اضغطي للذكر</button>
-    <div class="actions">
-      <button class="small" id="change">تغيير الذكر</button>
-      <button class="small" id="reset">إعادة العدّ</button>
-    </div>
-  </section>
-  <p class="note">ابدئي بذكر الله بقلب حاضر، واختاري الذكر المناسب لكِ. هذا عدّاد مساعد، وليس شرطًا للذكر.</p>
-  <footer>اللهم اجعلها نافعةً لكل من يذكر الله 🌿</footer>
-</main>
+<div class="card">
+  <h1>🌿 ربيع القلوب 🌿</h1>
+  <p>ألا بذكر الله تطمئن القلوب</p>
+
+  <h3 id="selected">سبحان الله</h3>
+  <div id="count">0 / 100</div>
+
+  <button class="counter" onclick="increment()">
+    سبّح الله 🤍
+  </button>
+  <br>
+  <button class="reset" onclick="resetCount()">
+    تصفير العدّاد ↺
+  </button>
+
+  <hr style="border:0;border-top:1px solid #eee;margin:25px 0">
+  <h3>اختاري الذكر</h3>
+
+  <button class="dhikr" onclick="choose('سبحان الله')">
+    سبحان الله
+  </button>
+  <button class="dhikr" onclick="choose('الحمد لله')">
+    الحمد لله
+  </button>
+  <button class="dhikr" onclick="choose('الله أكبر')">
+    الله أكبر
+  </button>
+  <button class="dhikr" onclick="choose('أستغفر الله')">
+    أستغفر الله
+  </button>
+  <button class="dhikr" onclick="choose('لا إله إلا الله وحده لا شريك له، له الملك وله الحمد وهو على كل شيء قدير')">
+    لا إله إلا الله وحده لا شريك له، له الملك وله الحمد وهو على كل شيء قدير
+  </button>
+
+  <footer>اللهم اجعل ألسنتنا عامرة بذكرك 🤍</footer>
+</div>
+
 <script>
-const lists={
- tasbeeh:["سبحان الله وبحمده","سبحان الله العظيم"],
- tahleel:["لا إله إلا الله","لا إله إلا الله وحده لا شريك له، له الملك وله الحمد وهو على كل شيء قدير"],
- takbeer:["الله أكبر","الله أكبر كبيرًا"],
- istighfar:["أستغفر الله وأتوب إليه","أستغفر الله العظيم"]
-};
-let kind="tasbeeh", index=0, count=0;
-const phrase=document.getElementById("phrase"), countEl=document.getElementById("count"), goal=document.getElementById("goal");
-function render(){phrase.textContent=lists[kind][index];countEl.textContent=count;goal.textContent="من 100";document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("active",b.dataset.kind===kind));}
-document.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>{kind=b.dataset.kind;index=0;count=0;render();}));
-document.getElementById("tap").addEventListener("click",()=>{count=count>=100?0:count+1;render();});
-document.getElementById("reset").addEventListener("click",()=>{count=0;render();});
-document.getElementById("change").addEventListener("click",()=>{index=(index+1)%lists[kind].length;count=0;render();});
+let count = 0;
+let currentDhikr = 'سبحان الله';
+
+function increment() {
+  if (count < 100) count++;
+  document.getElementById('count').textContent =
+    count + ' / 100';
+  if (count === 100) {
+    document.getElementById('selected').textContent =
+      currentDhikr + ' — أتممتِ 100 مرة 🌸';
+  }
+}
+
+function resetCount() {
+  count = 0;
+  document.getElementById('count').textContent = '0 / 100';
+  document.getElementById('selected').textContent = currentDhikr;
+}
+
+function choose(dhikr) {
+  currentDhikr = dhikr;
+  count = 0;
+  document.getElementById('selected').textContent = dhikr;
+  document.getElementById('count').textContent = '0 / 100';
+}
 </script>
 </body>
 </html>
